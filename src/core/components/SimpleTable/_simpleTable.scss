@@ -7,13 +7,19 @@
         font-weight: bold;
       }
     }
-    & .simple-table-row{
+    & .simple-table-row {
       tr{
         &:nth-child(odd) {
-          background-color: rgba(0, 0, 0, 0.04);
+          background-color: rgba(63, 81, 181, 0.04);
+        }
+        &.selected-row {
+          background-color: rgba(63, 81, 181, 0.2);
+          &:hover {
+            background-color: rgba(63, 81, 181, 0.3);
+          }
         }
         &:hover {
-          background-color: rgba(0, 0, 0, 0.1);
+          background-color: rgba(63, 81, 181, 0.1);
         }
       }
     }

@@ -7,6 +7,7 @@ const UsersTableForm = props => {
   return(
     <Table
       data={props.data}
+      selectedRowIndex={4}
     />
   );
 }

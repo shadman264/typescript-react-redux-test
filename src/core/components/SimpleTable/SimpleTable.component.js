@@ -13,9 +13,9 @@ import _isEqual from 'lodash/isEqual';
 class SimpleTable extends Component {
 
   // This method is to prevent unnecessary renders
-  // This component should be updated only if data property updates
+  // This component should be updated only if SimpleTable's properties are updated
   shouldComponentUpdate(nextProps, nextState) {
-    if(_isEqual(this.props.data, nextProps.data)) {
+    if(_isEqual(this.props.data, nextProps.data) && this.props.selectedRowIndex === nextProps.selectedRowIndex) {
       return false;
     }
     return true;
@@ -46,9 +46,15 @@ class SimpleTable extends Component {
         );
       });
 
+      let rowClass = "";
+      if(this.props.selectedRowIndex === rowIndex) {
+        rowClass = "selected-row";
+      }
+
       return(
         <TableRow
           key={rowIndex}
+          className={rowClass}
         >
           {rowCellList}
         </TableRow>
