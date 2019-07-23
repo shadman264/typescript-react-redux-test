@@ -7,7 +7,18 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import _isEqual from 'lodash/isEqual';
+
 class SimpleTable extends Component {
+
+  // This method is to prevent unnecessary renders
+  // This component should be updated only if data property updates
+  shouldComponentUpdate(nextProps, nextState) {
+    if(_isEqual(this.props.data, nextProps.data)) {
+      return false;
+    }
+    return true;
+  }
   
   render() {
     const tableHeadList = this.props.data.tableHead.map((headValue, headIndex) => {
@@ -15,6 +26,7 @@ class SimpleTable extends Component {
         <TableCell key={`${headValue}_${headIndex}`} align="center">{headValue}</TableCell>
       );
     });
+
     const tableRowList = this.props.data.tableData.map((row, rowIndex) => {
       const rowCellList = [];
       Object.keys(row).forEach((key, colIndex) => {
@@ -26,6 +38,7 @@ class SimpleTable extends Component {
         </TableRow>
       );
     });
+
     return(
       <Paper className="table-container">
         <Table className="simple-table">
