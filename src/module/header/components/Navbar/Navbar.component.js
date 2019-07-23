@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import Filter from '../Filter/Filter.container';
+
 class Navbar extends Component{
   render() {
     return(
@@ -17,6 +19,7 @@ class Navbar extends Component{
           <Typography variant="h6" className="navbar-left">
             Users
           </Typography>
+          <Filter/>
         </Toolbar>    
       </AppBar>
     )
