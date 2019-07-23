@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Proptypes from 'prop-types';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -23,18 +24,31 @@ class SimpleTable extends Component {
   render() {
     const tableHeadList = this.props.data.tableHead.map((headValue, headIndex) => {
       return(
-        <TableCell key={`${headValue}_${headIndex}`} align="center">{headValue}</TableCell>
+        <TableCell
+          key={`${headValue}_${headIndex}`}
+          align="center">
+            {headValue}
+        </TableCell>
       );
     });
 
     const tableRowList = this.props.data.tableData.map((row, rowIndex) => {
       const rowCellList = [];
       Object.keys(row).forEach((key, colIndex) => {
-        rowCellList.push(<TableCell key={`${key}_${colIndex}`} align="center">{row[key]}</TableCell>);
+        rowCellList.push(
+        <TableCell
+          key={`${key}_${colIndex}`}
+          align="center">
+            {row[key]}
+        </TableCell>
+        );
       });
+
       return(
-        <TableRow key={rowIndex}>
-          {rowCellList}
+        <TableRow
+          key={rowIndex}
+          hover={true}>
+            {rowCellList}
         </TableRow>
       );
     });
@@ -47,13 +61,17 @@ class SimpleTable extends Component {
               {tableHeadList}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className="simple-table-row">
             {tableRowList}
           </TableBody>
         </Table>
       </Paper>
     );
   }
+}
+
+SimpleTable.propTypes = {
+  data: Proptypes.object.isRequired
 }
 
 export default SimpleTable;

@@ -1,6 +1,11 @@
 .table-container {
   & .simple-table {
-    & .simple-table-head {
+    & .simple-table-row{
+      tr{
+        &:nth-child(odd) {
+          background-color: rgba(0, 0, 0, 0.04);;
+        }
+      }
     }
   }
 }
