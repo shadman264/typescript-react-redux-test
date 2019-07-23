@@ -1,8 +1,11 @@
 import React from 'react';
 import Table from '../../../../core/components/SimpleTable/SimpleTable.component';
+
 const UsersTableForm = props => {
   return(
-    <Table/>
+    <Table
+      data={props.data}
+    />
   );
 }
 

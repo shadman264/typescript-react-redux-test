@@ -7,36 +7,35 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import tableData from './SimpleTable.mock';
-
 class SimpleTable extends Component {
   
   render() {
-    
+    const tableHeadList = this.props.data.tableHead.map((headValue, headIndex) => {
+      return(
+        <TableCell key={`${headValue}_${headIndex}`} align="center">{headValue}</TableCell>
+      );
+    });
+    const tableRowList = this.props.data.tableData.map((row, rowIndex) => {
+      const rowCellList = [];
+      Object.keys(row).forEach((key, colIndex) => {
+        rowCellList.push(<TableCell key={`${key}_${colIndex}`} align="center">{row[key]}</TableCell>);
+      });
+      return(
+        <TableRow key={rowIndex}>
+          {rowCellList}
+        </TableRow>
+      );
+    });
     return(
-      <Paper className="{classes.root}">
-        <Table className="{classes.table}">
-          <TableHead>
+      <Paper className="table-container">
+        <Table className="simple-table">
+          <TableHead className="simple-table-head">
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              {tableHeadList}
             </TableRow>
           </TableHead>
           <TableBody>
-            {tableData.map(row => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
-              </TableRow>
-            ))}
+            {tableRowList}
           </TableBody>
         </Table>
       </Paper>
