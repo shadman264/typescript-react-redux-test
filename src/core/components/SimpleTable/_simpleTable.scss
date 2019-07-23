@@ -1,12 +1,19 @@
 .table-container {
   & .simple-table {
+    & .simple-table-head {
+      background-color: rgba(63, 81, 181, 0.7);
+      & .MuiTableCell-head {
+        color: white;
+        font-weight: bold;
+      }
+    }
     & .simple-table-row{
       tr{
         &:nth-child(odd) {
           background-color: rgba(0, 0, 0, 0.04);
         }
         &:hover {
-          background: rgba(0, 0, 0, 0.1);
+          background-color: rgba(0, 0, 0, 0.1);
         }
       }
     }
