@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import UsersTableForm from './UsersTable.form';
 import columnHeaders from './UsersTable.column';
@@ -66,6 +67,14 @@ class UsersTable extends Component{
       </div>
     );
   }
+}
+
+UsersTable.propTypes = {
+  usersData: PropTypes.array
+}
+
+UsersTable.defaultProps = {
+  usersData: []
 }
 
 export default UsersTable;

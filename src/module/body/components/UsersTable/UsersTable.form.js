@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Table from '../../../../core/components/SimpleTable/SimpleTable.component';
 
 const UsersTableForm = props => {
@@ -7,6 +9,10 @@ const UsersTableForm = props => {
       data={props.data}
     />
   );
+}
+
+UsersTableForm.propTypes = {
+  data: PropTypes.object.isRequired
 }
 
 export default UsersTableForm;
