@@ -26,8 +26,9 @@ class SimpleTable extends Component {
       return(
         <TableCell
           key={`${headValue}_${headIndex}`}
-          align="center">
-            {headValue}
+          align="center"
+        >
+          {headValue}
         </TableCell>
       );
     });
@@ -38,8 +39,9 @@ class SimpleTable extends Component {
         rowCellList.push(
         <TableCell
           key={`${key}_${colIndex}`}
-          align="center">
-            {row[key]}
+          align="center"
+        >
+          {row[key]}
         </TableCell>
         );
       });
@@ -47,8 +49,8 @@ class SimpleTable extends Component {
       return(
         <TableRow
           key={rowIndex}
-          hover={true}>
-            {rowCellList}
+        >
+          {rowCellList}
         </TableRow>
       );
     });
