@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import UsersTableForm from './UsersTable.form';
 
 class UsersTable extends Component{
   render() {
     return(
-      <h1>UsersTable</h1>
+      <UsersTableForm/>
     );
   }
 }
