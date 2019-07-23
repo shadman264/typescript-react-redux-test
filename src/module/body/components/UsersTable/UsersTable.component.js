@@ -60,7 +60,7 @@ class UsersTable extends Component{
   
   render() {
     return(
-      <div>
+      <div className="users-table-container">
         <UsersTableForm
           data={this.state.mappedUsersData}
         />

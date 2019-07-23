@@ -1,6 +1,7 @@
 import React from 'react';
 
 import UsersTable from './module/body/components/UsersTable/UsersTable.container';
+import Navbar from './module/header/components/Navbar/Navbar.component';
 
 import './index.scss';
 
@@ -12,6 +13,7 @@ function Root() {
   return (
     <Router history={history}>
       <div>
+        <Navbar/>
         <Route exact path='/' component={UsersTable} />
       </div>
     </Router>

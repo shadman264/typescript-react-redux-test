@@ -1,8 +1,10 @@
 @import './variables';
 @import './core/core';
+@import './module/header/header';
 @import './module/body/body';
+
 body {
-  margin: 3%;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
