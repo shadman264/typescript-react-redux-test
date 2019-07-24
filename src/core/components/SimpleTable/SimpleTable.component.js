@@ -22,6 +22,13 @@ class SimpleTable extends Component {
   }
   
   render() {
+    if(this.props.data.tableData.length === 0) {
+      return(
+        <Paper className="table-container">
+          <h1 className="no-data">No Content Found</h1>
+        </Paper>
+      );
+    }
     const tableHeadList = this.props.data.tableHead.map((headValue, headIndex) => {
       return(
         <TableCell

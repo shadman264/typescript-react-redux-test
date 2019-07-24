@@ -1,3 +1,9 @@
 .users-table-container{
   margin: 3%;
+  & .no-data{
+    margin: 5%;
+    padding: 5%;
+    text-align: center;
+    color: #AD141E;
+  }
 }
