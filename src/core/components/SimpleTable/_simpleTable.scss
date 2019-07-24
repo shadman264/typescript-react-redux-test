@@ -9,7 +9,7 @@
     }
     & .simple-table-row {
       tr{
-        &:nth-child(odd) {
+        &:nth-child(even) {
           background-color: rgba(63, 81, 181, 0.04);
         }
         &.selected-row {
