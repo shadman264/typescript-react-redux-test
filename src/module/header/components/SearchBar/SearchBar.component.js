@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import SearchIcon from '@material-ui/icons/Search';
+import SearchBarForm from './SearchBar.form';
 
 class SearchBar extends Component{
   constructor() {
@@ -16,20 +14,9 @@ class SearchBar extends Component{
   render() {
     return(
       <div>
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <TextField
-              id="navbar-search-bar"
-              name ="searchedUsername"
-              placeholder="Search"
-              classes={{root: 'search-bar-textfield'}}
-              onChange={this.handleFieldChange}
-            />
-            <SearchIcon
-              className="search-icon"
-            />
-          </Grid>
-        </Grid>
+        <SearchBarForm
+          onChange={this.handleFieldChange}
+        />
       </div>
     )
   }

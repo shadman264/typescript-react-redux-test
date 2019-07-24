@@ -8,7 +8,6 @@ import _isEqual from 'lodash/isEqual';
 import _has from 'lodash/has';
 import _startCase from 'lodash/startCase';
 import _toLower from 'lodash/toLower';
-import _findIndex from 'lodash/findIndex';
 
 class UsersTable extends Component{
 
