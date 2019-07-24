@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -12,6 +13,7 @@ const SearchBarForm = (props) => {
           id="navbar-search-bar"
           name ="searchedUsername"
           placeholder="Search"
+          value={props.searchedUsername}
           classes={{root: 'search-bar-textfield'}}
           onChange={props.onChange}
         />
@@ -22,5 +24,15 @@ const SearchBarForm = (props) => {
     </Grid>
   );
 }
+
+SearchBarForm.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  searchedUsername: PropTypes.string
+}
+
+SearchBarForm.defaultProps = {
+  searchedUsername: ''
+}
+
 
 export default SearchBarForm;
