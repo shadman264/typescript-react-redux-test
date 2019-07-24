@@ -79,7 +79,12 @@ class SimpleTable extends Component {
 }
 
 SimpleTable.propTypes = {
-  data: Proptypes.object.isRequired
+  data: Proptypes.object.isRequired,
+  selectedRowIndex: Proptypes.number
+}
+
+SimpleTable.defaultProps = {
+  selectedRowIndex: -1
 }
 
 export default SimpleTable;

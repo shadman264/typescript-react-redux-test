@@ -8,6 +8,7 @@ import _isEqual from 'lodash/isEqual';
 import _has from 'lodash/has';
 import _startCase from 'lodash/startCase';
 import _toLower from 'lodash/toLower';
+import _findIndex from 'lodash/findIndex';
 
 class UsersTable extends Component{
 
@@ -15,6 +16,8 @@ class UsersTable extends Component{
     super(props);
     this.state = {
       usersData: [],
+      searchedUsername: '',
+      searchedUserIndex: -1,
       mappedUsersData: {
         tableHead: columnHeaders,
         tableData: []
@@ -31,6 +34,10 @@ class UsersTable extends Component{
       return{
         usersData: nextProps.usersData
       }
+    } else if(nextProps.searchedUsername !== prevState.searchedUsername) {
+      return{
+        searchedUsername: nextProps.searchedUsername
+      }
     }
     return null;
   }
@@ -44,7 +51,21 @@ class UsersTable extends Component{
           tableData
         }
       })
+    } else if(this.state.searchedUsername !== prevState.searchedUsername) {
+      const searchedUserIndex = this.getSearchedUsernameIndex();
+      this.setState({
+        searchedUserIndex
+      });
     }
+  }
+
+  getSearchedUsernameIndex() {
+    if(this.state.searchedUsername === '') {
+      return -1;
+    }
+    return this.state.mappedUsersData.tableData.findIndex(user => {
+      return user.name.toLowerCase().includes(this.state.searchedUsername.toLowerCase())
+    });
   }
 
   mapUsersData() {
@@ -63,6 +84,7 @@ class UsersTable extends Component{
       <div className="users-table-container">
         <UsersTableForm
           data={this.state.mappedUsersData}
+          searchedUserIndex={this.state.searchedUserIndex}
         />
       </div>
     );

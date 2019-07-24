@@ -7,7 +7,7 @@ const searchBarReducer = (state = initialState, action) => {
       case SEARCH_USER:
         return {
           ...state,
-          searchedUsername: action.payload
+          name: action.payload
         }
 			default:
 				return state;

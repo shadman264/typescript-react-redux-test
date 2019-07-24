@@ -8,19 +8,11 @@ class SearchBar extends Component{
   constructor() {
     super();
     this.handleFieldChange = this.handleFieldChange.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
-    this.state = {
-      searchedUsername: ''
-    }
   }
   handleFieldChange(e) {
-    this.setState({
-      [e.target.name] : e.target.value
-    });
+    this.props.searchUser(e.target.value.trim());
   }
-  handleSearch() {
-    this.props.searchUser(this.state.searchedUsername);
-  }
+
   render() {
     return(
       <div>
@@ -35,7 +27,6 @@ class SearchBar extends Component{
             />
             <SearchIcon
               className="search-icon"
-              onClick={this.handleSearch}
             />
           </Grid>
         </Grid>

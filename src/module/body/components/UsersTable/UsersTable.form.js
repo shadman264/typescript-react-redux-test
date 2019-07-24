@@ -7,7 +7,7 @@ const UsersTableForm = props => {
   return(
     <Table
       data={props.data}
-      selectedRowIndex={4}
+      selectedRowIndex={props.searchedUserIndex}
     />
   );
 }
