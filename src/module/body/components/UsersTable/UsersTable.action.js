@@ -1,25 +1,22 @@
 import axios from 'axios';
 import * as usersTableConstants from './UsersTable.constants';
 
+const getUsersDataAction = ((type, payload = null) => {
+  return {
+    type,
+    payload
+  }
+});
+
 export const getUsersData = url => {
-  return dispatch => {
-    dispatch({
-      type: usersTableConstants.GET_USERS_DATA_REQUEST,
-      payload: null
-    });
-    axios.get(url)
-      .then(res => {
-        dispatch({
-          type: usersTableConstants.GET_USERS_DATA_REQUEST_SUCCESS,
-          payload: res.data
-        })
-      })
-      .catch(e => {
-        console.error('Error occured: ', e);
-        dispatch({
-          type: usersTableConstants.GET_USERS_DATA_REQUEST_FAILURE,
-          payload: null
-        })
-      })
+  return async dispatch => {
+    dispatch(getUsersDataAction(usersTableConstants.GET_USERS_DATA_REQUEST));
+    try {
+      const res = await axios.get(url);
+      dispatch(getUsersDataAction(usersTableConstants.GET_USERS_DATA_REQUEST_SUCCESS, res.data));
+    } catch (e) {
+      console.error('Error occured: ', e);
+      dispatch(getUsersDataAction(usersTableConstants.GET_USERS_DATA_REQUEST_FAILURE));
+    }
   }
 };
