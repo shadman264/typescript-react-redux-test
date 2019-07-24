@@ -1,6 +1,8 @@
 import {SEARCH_USER} from './SearchBar.constants';
 
-const initialState = '';
+const initialState = {
+  
+};
 
 const searchBarReducer = (state = initialState, action) => {
     switch(action.type) {

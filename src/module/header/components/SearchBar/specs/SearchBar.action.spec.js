@@ -1,7 +1,7 @@
 import * as searchBarActions from '../SearchBar.action';
 import {SEARCH_USER} from '../SearchBar.constants';
 
-describe('searchBarActions', () => {
+describe('SearchBar.action', () => {
   it('should create an action to dispatch searchedUsername', () => {
     const searchedUsername = 'test'
     const expectedAction = {
