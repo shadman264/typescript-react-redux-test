@@ -8,14 +8,14 @@ class SearchBar extends Component{
     super();
     this.handleFieldChange = this.handleFieldChange.bind(this);
     this.state = {
-      searchedUsername: ''
+      searchedText: ''
     }
   }
   handleFieldChange(e) {
     this.setState({
-      searchedUsername: e.target.value
+      searchedText: e.target.value
     }, () => {
-      this.props.searchUser(this.state.searchedUsername.trim());
+      this.props.search(this.state.searchedText.trim());
     })
   }
 
@@ -23,7 +23,7 @@ class SearchBar extends Component{
     return(
       <div>
         <SearchBarForm
-          searchedUsername={this.state.searchedUsername}
+          searchedText={this.state.searchedText}
           onChange={this.handleFieldChange}
         />
       </div>

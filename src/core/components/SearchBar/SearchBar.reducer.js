@@ -1,4 +1,4 @@
-import {SEARCH_USER} from './SearchBar.constants';
+import {SEARCH_REQUEST} from './SearchBar.constants';
 
 const initialState = {
   
@@ -6,10 +6,10 @@ const initialState = {
 
 const searchBarReducer = (state = initialState, action) => {
     switch(action.type) {
-      case SEARCH_USER:
+      case SEARCH_REQUEST:
         return {
           ...state,
-          name: action.payload
+          searchedText: action.payload
         }
 			default:
 				return state;

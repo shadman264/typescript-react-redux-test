@@ -9,7 +9,7 @@ import _has from 'lodash/has';
 function mapStateToProps(state) {
   return{
     usersData: _has(state, 'users.data') ? state.users.data : [],
-    searchedUsername: _has(state, 'searchedUsername.name') ? state.searchedUsername.name : ''
+    searchedUsername: _has(state, 'searchedUsername.searchedText') ? state.searchedUsername.searchedText : ''
   }
 }
 

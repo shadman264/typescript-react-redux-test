@@ -11,9 +11,9 @@ const SearchBarForm = (props) => {
       <Grid item>
         <TextField
           id="navbar-search-bar"
-          name ="searchedUsername"
+          name ="searchedText"
           placeholder="Search"
-          value={props.searchedUsername}
+          value={props.searchedText}
           classes={{root: 'search-bar-textfield'}}
           onChange={props.onChange}
         />
@@ -27,11 +27,11 @@ const SearchBarForm = (props) => {
 
 SearchBarForm.propTypes = {
   onChange: PropTypes.func.isRequired,
-  searchedUsername: PropTypes.string
+  searchedText: PropTypes.string
 }
 
 SearchBarForm.defaultProps = {
-  searchedUsername: ''
+  searchedText: ''
 }
 
 

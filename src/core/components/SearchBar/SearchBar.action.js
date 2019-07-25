@@ -1,8 +1,8 @@
-import {SEARCH_USER} from './SearchBar.constants';
+import {SEARCH_REQUEST} from './SearchBar.constants';
 
-export const searchUser = searchedUsername => {
+export const search = searchedText => {
   return{
-    type: SEARCH_USER,
-    payload: searchedUsername
+    type: SEARCH_REQUEST,
+    payload: searchedText
   }
 }
