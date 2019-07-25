@@ -91,11 +91,14 @@ class UsersTable extends Component{
 }
 
 UsersTable.propTypes = {
-  usersData: PropTypes.array
+  usersData: PropTypes.array,
+  searchedUsername: PropTypes.string,
+  getUsersData: PropTypes.func.isRequired
 }
 
 UsersTable.defaultProps = {
-  usersData: []
+  usersData: [],
+  searchedUsername: ''
 }
 
 export default UsersTable;
