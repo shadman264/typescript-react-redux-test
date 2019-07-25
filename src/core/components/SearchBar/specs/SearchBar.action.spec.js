@@ -1,13 +1,13 @@
 import * as searchBarActions from '../SearchBar.action';
-import {SEARCH_USER} from '../SearchBar.constants';
+import {SEARCH_REQUEST} from '../SearchBar.constants';
 
 describe('SearchBar.action', () => {
-  it('should create an action to dispatch searchedUsername', () => {
-    const searchedUsername = 'test'
+  it('should create an action to dispatch searchedText', () => {
+    const searchedText = 'test'
     const expectedAction = {
-      type: SEARCH_USER,
+      type: SEARCH_REQUEST,
       payload: 'test'
     }
-    expect(searchBarActions.searchUser(searchedUsername)).toEqual(expectedAction);
+    expect(searchBarActions.search(searchedText)).toEqual(expectedAction);
   })
 })
