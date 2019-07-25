@@ -13,7 +13,12 @@ const UsersTableForm = props => {
 }
 
 UsersTableForm.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  selectedRowIndex: PropTypes.number
+}
+
+UsersTableForm.defaultProps = {
+  selectedRowIndex: -1
 }
 
 export default UsersTableForm;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import UsersTableForm from './UsersTable.form';
-import columnHeaders from './UsersTable.column';
+import columnHeaders from './UsersTable.columns';
 
 import _isEqual from 'lodash/isEqual';
 import _has from 'lodash/has';
