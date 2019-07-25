@@ -7,22 +7,22 @@ describe('<SearchBarForm/>', () => {
   const testFunc = jest.fn();
 
   const initialState = {
-    searchedUsername: ''
+    searchedText: ''
   };
   const parentWrapper = mount(
     <SearchBar
-      searchUser={testFunc}
+      search={testFunc}
     />
   );
   const wrapper = mount(
     <SearchBarForm
-      searchedUsername={initialState.searchedUsername}
+      searchedText={initialState.searchedText}
       onChange={parentWrapper.instance().handleFieldChange}
     />
   );
   it('should render everything successfully', () => {
     expect(wrapper.exists()).toBeTruthy();
-    expect(wrapper.find({ name: 'searchedUsername'}).exists()).toBeTruthy();
+    expect(wrapper.find({ name: 'searchedText'}).exists()).toBeTruthy();
     expect(wrapper.find('.search-icon').exists()).toBeTruthy();
   });
   it('should simulate a change event on textField and call onChange function', () => {

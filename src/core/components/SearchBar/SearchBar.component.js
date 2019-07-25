@@ -32,7 +32,7 @@ class SearchBar extends Component{
 }
 
 SearchBar.propTypes = {
-  searchUser: PropTypes.func.isRequired
+  search: PropTypes.func.isRequired
 }
 
 export default SearchBar;

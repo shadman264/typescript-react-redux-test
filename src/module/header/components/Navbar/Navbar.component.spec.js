@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import SearchBar from '../SearchBar/SearchBar.container';
+import SearchBar from '../../../../core/components/SearchBar/SearchBar.container';
 
 describe('<Navbar/>', () => {
   const wrapper = shallow(

@@ -6,7 +6,7 @@ describe('<SearchBar/>', () => {
   const testFunc = jest.fn();
   const wrapper = mount(
     <SearchBar
-      searchUser={testFunc}
+      search={testFunc}
     />
   );
   it('should render everything successfully', () => {
@@ -15,6 +15,6 @@ describe('<SearchBar/>', () => {
   it('should simulate a change event on textField and state should be updated', () => {
     const textField = wrapper.find('input');
     textField.simulate('change', { target: { value: 'Changed' } });
-    expect(wrapper.state().searchedUsername).toEqual('Changed');
+    expect(wrapper.state().searchedText).toEqual('Changed');
   });
 })

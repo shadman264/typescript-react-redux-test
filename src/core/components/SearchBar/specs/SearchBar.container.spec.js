@@ -27,7 +27,7 @@ describe('container <SearchBar />', () => {
   });
 
   it('should map dispatch to props', () => {
-    const expectedPropKeys = ['searchUser'];
+    const expectedPropKeys = ['search'];
     expect(Object.keys(component.props())).toEqual(expect.arrayContaining(expectedPropKeys));
   });
 });

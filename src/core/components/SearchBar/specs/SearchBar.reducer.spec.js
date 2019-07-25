@@ -1,30 +1,21 @@
 import searchBarReducer from '../SearchBar.reducer';
-import {SEARCH_USER} from '../SearchBar.constants';
+import {SEARCH_REQUEST} from '../SearchBar.constants';
 
 describe('SearchBar.reducer', () => {
   it('should return the initial state', () => {
     expect(searchBarReducer(undefined, {})).toEqual({});
   });
 
-  it('should handle SEARCH_USER', () => {
-    const searchedName = 'test';
+  it('should handle SEARCH_REQUEST', () => {
+    const searchedText = 'test';
     const dispatchedAction = {
-      type: SEARCH_USER,
-      payload: searchedName
+      type: SEARCH_REQUEST,
+      payload: searchedText
     };
-    const prevState = {
-      user: [
-        {
-          name: 'test_user_1'
-        },
-        {
-          name: 'test_user_2'
-        }
-      ]
-    }
+    const prevState = {};
     const expectedReducedData = {
       ...prevState,
-      name: searchedName
+      searchedText: searchedText
     };  
     expect(searchBarReducer(prevState, dispatchedAction)).toEqual(expectedReducedData);
   });

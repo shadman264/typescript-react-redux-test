@@ -15,7 +15,6 @@ export const getUsersData = url => {
       const res = await axios.get(url);
       dispatch(getUsersDataAction(usersTableConstants.GET_USERS_DATA_REQUEST_SUCCESS, res.data));
     } catch (e) {
-      console.error('Error occured: ', e);
       dispatch(getUsersDataAction(usersTableConstants.GET_USERS_DATA_REQUEST_FAILURE));
     }
   }
