@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import _isEqual from 'lodash/isEqual';
+import _startCase from 'lodash/startCase';
+import _toLower from 'lodash/toLower';
 
 /**
  * This component will display json data in tabular format
@@ -44,10 +46,11 @@ class SimpleTable extends Component {
     }
 
     // To create column headers container
-    const tableHeadList = this.props.data.tableHead.map((headValue, headIndex) => {
+    const tableHeadList = Object.keys(this.props.data.tableData[0]).map((key, index) => {
+      const headValue = _startCase(_toLower(key));
       return(
         <TableCell
-          key={`${headValue}_${headIndex}`}
+          key={`${headValue}_${index}`}
           align="center"
         >
           {headValue}

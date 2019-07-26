@@ -96,7 +96,7 @@ class UsersTable extends Component{
   mapUsersData() {
     return this.state.usersData.map(user => {
       const mappedUser = {};
-      Object.entries(this.props.mappedFields).map((entry, index) => {
+      Object.entries(this.props.mappedFields).forEach(entry => {
         mappedUser[entry[0]] = _get(user, entry[1]) ;
       });
       return mappedUser;
