@@ -1,6 +1,5 @@
 import React from 'react';
 import SimpleTable from './SimpleTable.component';
-import columnHeaders from '../../../module/body/components/UsersTable/UsersTable.columns';
 import {mount} from 'enzyme';
 
 import Table from '@material-ui/core/Table';
@@ -26,7 +25,6 @@ describe('<SimpleTable/>', () => {
     }
   ];
   let data = {
-    tableHead: columnHeaders,
     tableData: mockTableData
   }
   let wrapper = mount(

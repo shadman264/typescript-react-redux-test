@@ -1,6 +1,5 @@
 import React from 'react';
 import UsersTableForm from '../UsersTable.form';
-import columnHeaders from '../UsersTable.columns';
 import Table from '../../../../../core/components/SimpleTable/SimpleTable.component';
 import {mount} from 'enzyme';
 
@@ -20,7 +19,6 @@ describe('<UsersTableForm/>', () => {
     }
   ];
   let data = {
-    tableHead: columnHeaders,
     tableData: mockTableData
   }
   const wrapper = mount(
