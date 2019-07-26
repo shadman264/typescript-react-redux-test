@@ -9,6 +9,12 @@ import _has from 'lodash/has';
 import _startCase from 'lodash/startCase';
 import _toLower from 'lodash/toLower';
 
+/**
+ * This component will display users' data in tabular format and handle refactoring of data and mapping
+ * @prop {array} usersData : array of users data as json object
+ * @prop {string} searchedUsername : name of the searched user
+ * @prop {func: required} getUsersData : action creator to make api call and dispatch users' data
+ */
 class UsersTable extends Component{
 
   constructor(props) {
@@ -24,10 +30,18 @@ class UsersTable extends Component{
     }
   }
 
+  /**
+   * This method will call the action creator to fetch user's data
+   */
   componentDidMount() {
     this.props.getUsersData('https://jsonplaceholder.typicode.com/users');
   }
 
+  /**
+   * This static method will update state with incoming props
+   * @param {object} nextProps : incoming properties
+   * @param {object} prevState : previous states 
+   */
   static getDerivedStateFromProps(nextProps, prevState) {
     if(!_isEqual(nextProps.usersData, prevState.usersData)) {
       return{
@@ -41,6 +55,11 @@ class UsersTable extends Component{
     return null;
   }
 
+  /**
+   * This method will handle data refactoring works after new props have been received
+   * @param {object} prevProps : previous properties
+   * @param {object} prevState : previous states 
+   */
   componentDidUpdate(prevProps, prevState) {
     if(!_isEqual(this.state.usersData, prevState.usersData)) {
       const tableData = this.mapUsersData();
@@ -58,6 +77,9 @@ class UsersTable extends Component{
     }
   }
 
+  /**
+   * This method will return searched user by it's name
+   */
   getSearchedUsernameIndex() {
     if(this.state.searchedUsername === '') {
       return -1;
@@ -67,6 +89,9 @@ class UsersTable extends Component{
     });
   }
 
+  /**
+   * This method will refactor api data for tableData
+   */
   mapUsersData() {
     return this.state.usersData.map(user => {
       return {

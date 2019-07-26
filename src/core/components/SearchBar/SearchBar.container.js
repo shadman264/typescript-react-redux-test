@@ -3,7 +3,11 @@ import SearchBar from './SearchBar.component';
 import * as searchBarActions from './SearchBar.action';
 import {bindActionCreators} from 'redux';
 
-function mapDispatchToProps(dispatch) {
+/**
+ * This method will map action creators as property of component
+ * @param {func} dispatch : dispatch method
+ */
+const mapDispatchToProps = dispatch => {
   const actions = {...searchBarActions};
   return bindActionCreators(actions, dispatch);
 }

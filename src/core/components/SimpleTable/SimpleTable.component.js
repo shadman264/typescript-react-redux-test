@@ -10,10 +10,22 @@ import Paper from '@material-ui/core/Paper';
 
 import _isEqual from 'lodash/isEqual';
 
+/**
+ * This component will display json data in tabular format
+ * @prop {object: required} data : incoming data structured as 
+ * data = { 
+ *   {array of string} tableHead: column headers,
+ *   {array of object} tableData: table rows containing column data}
+ * }
+ * @prop {number} selectedRowIndex : index of the selected row
+ */
 class SimpleTable extends Component {
-
-  // This method is to prevent unnecessary renders
-  // This component should be updated only if SimpleTable's properties are updated
+  /**
+   * This method will prevent unnecessary renders
+   * This component should be updated only if SimpleTable's properties are updated
+   * @param {object} nextProps : incoming properties
+   * @param {object} nextState : incoming states 
+   */
   shouldComponentUpdate(nextProps, nextState) {
     if(_isEqual(this.props.data, nextProps.data) && this.props.selectedRowIndex === nextProps.selectedRowIndex) {
       return false;
@@ -22,6 +34,7 @@ class SimpleTable extends Component {
   }
   
   render() {
+    // To handle no data to be shown
     if(this.props.data.tableData.length === 0) {
       return(
         <Paper className="table-container">
@@ -29,6 +42,8 @@ class SimpleTable extends Component {
         </Paper>
       );
     }
+
+    // To create column headers container
     const tableHeadList = this.props.data.tableHead.map((headValue, headIndex) => {
       return(
         <TableCell
@@ -40,6 +55,7 @@ class SimpleTable extends Component {
       );
     });
 
+    // To create table rows container
     const tableRowList = this.props.data.tableData.map((row, rowIndex) => {
       const rowCellList = [];
       Object.keys(row).forEach((key, colIndex) => {
@@ -53,11 +69,13 @@ class SimpleTable extends Component {
         );
       });
 
+      // To highlight table row if it is selected through search
       let rowClass = "";
       if(this.props.selectedRowIndex === rowIndex) {
         rowClass = "selected-row";
       }
 
+      // Return collection of rows
       return(
         <TableRow
           key={rowIndex}

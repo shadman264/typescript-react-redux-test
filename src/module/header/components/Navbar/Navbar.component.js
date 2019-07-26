@@ -8,6 +8,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import SearchBar from '../../../../core/components/SearchBar/SearchBar.container';
 
+/**
+ * This component will display Navbar with Searchbar
+ */
 class Navbar extends Component{
   render() {
     return(

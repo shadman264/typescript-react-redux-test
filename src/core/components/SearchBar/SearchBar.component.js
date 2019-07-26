@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import SearchBarForm from './SearchBar.form';
 
+/**
+ * This component will display search bar and dispatch action with searched text
+ * @prop {func: required} search : action creator to dispatch action with searched text as payload
+ */
 class SearchBar extends Component{
   constructor() {
     super();
@@ -11,6 +15,13 @@ class SearchBar extends Component{
       searchedText: ''
     }
   }
+
+  /**
+   * This method will handle field change
+   * It will set searched text as state and call action creator to dispatch
+   * searched text as action payload in callback.
+   * @param {object} e : incoming event
+   */
   handleFieldChange(e) {
     this.setState({
       searchedText: e.target.value
