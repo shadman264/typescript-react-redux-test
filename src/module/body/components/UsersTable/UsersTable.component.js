@@ -8,6 +8,7 @@ import _isEqual from 'lodash/isEqual';
 import _has from 'lodash/has';
 import _startCase from 'lodash/startCase';
 import _toLower from 'lodash/toLower';
+import _get from 'lodash/get';
 
 /**
  * This component will display users' data in tabular format and handle refactoring of data and mapping
@@ -94,12 +95,17 @@ class UsersTable extends Component{
    */
   mapUsersData() {
     return this.state.usersData.map(user => {
-      return {
-        name: _has(user, 'name') ? _startCase(_toLower(user.name)) : '',
-        email: _has(user, 'email') ? _toLower(user.email) : '',
-        city: _has(user, 'address.city') ? _startCase(_toLower(user.address.city)) : '',
-        company: _has(user, 'company.name') ? _startCase(_toLower(user.company.name)) : ''
-      };
+      const mappedUser = {};
+      Object.entries(this.props.mappedFields).map((entry, index) => {
+        mappedUser[entry[0]] = _get(user, entry[1]) ;
+      });
+      return mappedUser;
+      // return {
+      //   name: _has(user, 'name') ? _startCase(_toLower(user.name)) : '',
+      //   email: _has(user, 'email') ? _toLower(user.email) : '',
+      //   city: _has(user, 'address.city') ? _startCase(_toLower(user.address.city)) : '',
+      //   company: _has(user, 'company.name') ? _startCase(_toLower(user.company.name)) : ''
+      // };
     });
   }
   
@@ -118,7 +124,8 @@ class UsersTable extends Component{
 UsersTable.propTypes = {
   usersData: PropTypes.array,
   searchedUsername: PropTypes.string,
-  getUsersData: PropTypes.func.isRequired
+  getUsersData: PropTypes.func.isRequired,
+  mappedFields: PropTypes.object.isRequired
 }
 
 UsersTable.defaultProps = {

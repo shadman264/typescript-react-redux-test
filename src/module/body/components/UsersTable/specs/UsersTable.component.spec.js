@@ -1,6 +1,7 @@
 import React from 'react';
 import UsersTable from '../UsersTable.component';
 import mockData from '../UsersTable.mock';
+import mappedFields from '../UsersTable.mapped.mock';
 import {mount} from 'enzyme';
 
 describe('<UsersTable/>', () => {
@@ -8,6 +9,7 @@ describe('<UsersTable/>', () => {
   let wrapper = mount(
     <UsersTable
       getUsersData={testFunc}
+      mappedFields={mappedFields}
     />
   );
   it('should render everything successfully', () => {
@@ -21,6 +23,7 @@ describe('<UsersTable/>', () => {
       <UsersTable
         usersData={mockData}
         getUsersData={testFunc}
+        mappedFields={mappedFields}
       />
     );
     wrapper.instance().componentDidMount();
@@ -34,6 +37,7 @@ describe('<UsersTable/>', () => {
         usersData={mockData}
         searchedUsername="text"
         getUsersData={testFunc}
+        mappedFields={mappedFields}
       />
     );
     const nextProps = {

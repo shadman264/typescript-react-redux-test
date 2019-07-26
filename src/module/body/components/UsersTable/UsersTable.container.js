@@ -3,6 +3,7 @@ import UsersTable from './UsersTable.component';
 import {bindActionCreators} from 'redux';
 
 import * as usersTableActions from './UsersTable.action';
+import mappedFields from './UsersTable.mapped.mock';
 
 import _has from 'lodash/has';
 
@@ -13,7 +14,8 @@ import _has from 'lodash/has';
 const mapStateToProps = state => {
   return{
     usersData: _has(state, 'users.data') ? state.users.data : [],
-    searchedUsername: _has(state, 'searchedUsername.searchedText') ? state.searchedUsername.searchedText : ''
+    searchedUsername: _has(state, 'searchedUsername.searchedText') ? state.searchedUsername.searchedText : '',
+    mappedFields
   }
 }
 /**
